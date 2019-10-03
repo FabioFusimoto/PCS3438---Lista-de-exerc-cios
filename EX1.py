@@ -1,6 +1,5 @@
 import statistics as stat
 import csv
-# import numpy as np
 import math
 
 trainingLines = 350  # Ou seja, usando as linhas 0-349
@@ -35,21 +34,6 @@ def calcularDensidadeGaussiana(m, dp, x):  # Média, desvio padrão e valor amos
 fileContents = readContent('class01.csv')
 # print('-----------Dados-----------\r\n')
 # print(fileContents)
-# Transpondo-se os dados, fica mais fácil de se trabalhar
-# fileContents = np.transpose(fileContents)
-# print('\r\n-----------Dados transpostos-----------\r\n')
-# print(fileContents)
-
-# Calculando as médias e desvios padrão para cada um dos atributos
-
-# medias = []
-# desviosPadrao = []
-# for i in range(len(fileContents)):
-#     media, desvioPadrao = getGaussianParameters(fileContents[i])
-#     medias.append(media)
-#     desviosPadrao.append(desvioPadrao)
-# print('\r\nMedias: \r\n' + str(medias) + '\r\n')
-# print('\r\nDesvios padrão: \r\n' + str(desviosPadrao) + '\r\n')
 
 # Definindo as classes target e quais linhas pertencem a quais targets
 targets = {}
@@ -63,7 +47,6 @@ for i in range(trainingLines):
 # print(targets)
 
 # Calculando os atributos gaussianos para cada valor de target e cada atributo
-
 # Os dicionários serão da forma dict[target] = [v1, v2, v3, ..., v99]
 medias = {}
 desviosPadrao = {}
