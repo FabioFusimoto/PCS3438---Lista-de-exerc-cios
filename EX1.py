@@ -5,11 +5,6 @@ import math
 trainingLines = 350  # Ou seja, usando as linhas 0-349
 
 
-def getGaussianParameters(samples):
-    """Retorna a média e desvio padrão da média das amostras fornecidas"""
-    return(stat.mean(samples), stat.stdev(samples))
-
-
 def readContent(filename: str):
     CSVfile = open(filename, newline='')
     fileReader = csv.reader(CSVfile, delimiter=' ', quotechar='|')
@@ -24,6 +19,11 @@ def readContent(filename: str):
                 rowList.append(float(row))
             listOfContents.append(rowList)
     return listOfContents
+
+
+def getGaussianParameters(samples):
+    """Retorna a média e desvio padrão da média das amostras fornecidas"""
+    return(stat.mean(samples), stat.stdev(samples))
 
 
 def calcularDensidadeGaussiana(m, dp, x):  # Média, desvio padrão e valor amostrado
@@ -109,6 +109,7 @@ for linha in range(len(fileContents)):  # len(fileContents)
             acertosForaDaBaseDeTreino += 1
     total += 1
 
+print('\r\nUtilizando-se ' + str(trainingLines) + ' linhas no treinamento')
 print('Taxa de acertos na base de treino: ' + str(acertosNaBaseDeTreino) + '/' + str(trainingLines) + ' (' +
       str(100*(acertosNaBaseDeTreino/trainingLines)) + '%)')
 print('Taxa de acertos na base de validação: ' + str(acertosForaDaBaseDeTreino) + '/' + str(total - trainingLines) + ' ('
